@@ -17,7 +17,10 @@ let server = net.createServer((c) => {
             c.write(Buffer.alloc(1, 1));
         }else {
             let avl = parser.getAvl();
-
+            console.log(avl)
+            console.log(avl.records.forEach(function(record){
+                console.log(record.ioElements)
+            }))
             let writer = new binutils.BinaryWriter();
             writer.WriteInt32(avl.number_of_data);
 
