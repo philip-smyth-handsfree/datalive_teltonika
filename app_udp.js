@@ -1,4 +1,5 @@
 var dgram = require('dgram');
+const Parser = require('./index.js');
 
 const udpPort = 5000
 const server = dgram.createSocket('udp4');
@@ -15,6 +16,11 @@ server.on('message', async (msg, rinfo) => {
   try {
     // With a UDP Packet, we need to send back
     // Length - Packet ID - Not usable Byte 0x01 - AVL Packet ID - Number of accepted Data
+    let buffer = data;
+    let parser = new Parser(buffer);
+    console.log(parser)
+
+
   } catch (error) {
     console.log(`** UDP ERROR **::\n${error}`);
   }
