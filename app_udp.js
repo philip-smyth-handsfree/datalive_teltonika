@@ -16,7 +16,7 @@ server.on('message', async (msg, rinfo) => {
   try {
     // With a UDP Packet, we need to send back
     // Length - Packet ID - Not usable Byte 0x01 - AVL Packet ID - Number of accepted Data
-    let buffer = data;
+    let buffer = msg;
     let parser = new Parser(buffer);
     console.log(parser)
 
