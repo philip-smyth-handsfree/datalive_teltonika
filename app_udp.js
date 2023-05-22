@@ -11,7 +11,7 @@ server.on('error', (err) => {
 
 server.on('message', async (msg, rinfo) => {
   const today = new Date();
-  console.log(`** ---- UDP server a new packet: ${msg} (msg length: ${msg.length}) from ${rinfo.address}:${rinfo.port}, at: ${today}`);
+  // console.log(`** ---- UDP server a new packet: ${msg} (msg length: ${msg.length}) from ${rinfo.address}:${rinfo.port}, at: ${today}`);
 
   try {
     // With a UDP Packet, we need to send back
