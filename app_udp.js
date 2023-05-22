@@ -19,6 +19,8 @@ server.on('message', async (msg, rinfo) => {
     let buffer = msg;
     let parser = new Parser(buffer);
     console.log(parser)
+    console.log('####')
+    console.log(parser.parseHeader())
 
 
   } catch (error) {
