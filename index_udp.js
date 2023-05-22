@@ -9,16 +9,20 @@ const codec8ex = require('./codecs/codec8ex');
 class TeltonikaParser {
   constructor(buffer) {
     this._reader = new binutils.BinaryReader(buffer);
-    this.demo = new binutils.BinaryReader(buffer);
-    console.log(this.demo)
+    this._ack = new binutils.BinaryReader(buffer);
     this._avlObj = {};
     // this.checkIsImei();
     // if (!this.isImei) {
     this.parseHeader();
     this.decodeData();
     this.parseFooter();
+    this.returnResponse()
     // }
   }
+
+  returnResponse() {
+    console.log(this._ack.ReadBytes(2))
+  };
 
   checkIsImei() {
     let imeiLength = this._toInt(this._reader.ReadBytes(2));
