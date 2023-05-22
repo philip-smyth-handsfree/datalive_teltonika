@@ -22,15 +22,23 @@ class TeltonikaParser {
 
   returnResponse() {
     let packet_length = this._ack.ReadBytes(2);
+    console.log(packet_length)
     let packet_id = this._ack.ReadBytes(2);
     console.log(packet_id)
     let not_usable_byte = this._ack.ReadBytes(1);
+    console.log(not_usable_byte)
     let avl_packet_id = this._ack.ReadBytes(1);
+    console.log(avl_packet_id)
     let imeiLength = this._toInt(this._ack.ReadBytes(2));
+    console.log(imeiLength)
     this.imei = this._ack.ReadBytes(imeiLength).toString();
+    console.log(imei)
     let codex_id = this._ack.ReadBytes(1);
+    console.log(codex_id)
     let number_of_data = this._ack.ReadBytes(1);
+    console.log(number_of_data)
     let response = [Buffer.from('00'), Buffer.from('05'), Buffer.from(packet_id.toString()), Buffer.from('01'), Buffer.from(avl_packet_id.toString()), Buffer.from(number_of_data.toString())]
+    console.log(response)
     return(Buffer.concat(response))
   };
 
