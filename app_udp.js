@@ -4,6 +4,12 @@ const Parser = require('./index_udp.js');
 const udpPort = 5000
 const server = dgram.createSocket('udp4');
 
+function sendResponse(data, rinfo) {
+  var message = new Buffer(data);
+  server.send(message, 0, message.length, rinfo.port, rinfo.address);
+  console.log("Sent " + message);
+}
+
 server.on('error', (err) => {
   console.log(`UDP server error:\n${err.stack}`);
   server.close();
@@ -20,6 +26,7 @@ server.on('message', async (msg, rinfo) => {
     let parser = new Parser(buffer);
     console.log(parser)
     console.log('####')
+    sendResponse(parser.returnResponse(), rinfo)
 
 
   } catch (error) {
