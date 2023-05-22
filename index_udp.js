@@ -29,7 +29,7 @@ class TeltonikaParser {
     this.imei = this._ack.ReadBytes(imeiLength).toString();
     let codex_id = this._ack.ReadBytes(1);
     let number_of_data = this._ack.ReadBytes(1);
-    let response = this._toInt('00 05').toString() + this._toInt(packet_id).toString() + this._toInt('01').toString() + this._toInt(avl_packet_id).toString() + this._toInt(number_of_data).toString()
+    let response = '00 05'.toString() + packet_id.toString() + '01'.toString() + avl_packet_id.toString() + number_of_data.toString()
     return(response)
   };
 
