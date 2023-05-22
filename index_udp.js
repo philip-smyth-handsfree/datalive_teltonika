@@ -37,7 +37,7 @@ class TeltonikaParser {
     console.log(codex_id)
     let number_of_data = this._ack.ReadBytes(1);
     console.log(number_of_data)
-    let response = [Buffer.from('00'), Buffer.from('05'), Buffer.from(packet_id.toString()), Buffer.from('01'), Buffer.from(avl_packet_id.toString()), Buffer.from(number_of_data.toString())]
+    let response = [Buffer.from('00'), Buffer.from('05'), packet_id, Buffer.from('01'), avl_packet_id, number_of_data]
     console.log(response)
     return(Buffer.concat(response))
   };
