@@ -5,7 +5,7 @@ const udpPort = 5000
 const server = dgram.createSocket('udp4');
 
 function sendResponse(data, rinfo) {
-  var message = Buffer.from(data, 'utf-8');
+  var message = data
   server.send(message, 0, message.length, rinfo.port, rinfo.address);
   console.log(rinfo.port, rinfo.address)
   console.log("Sent " + message);
