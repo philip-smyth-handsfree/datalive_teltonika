@@ -32,7 +32,7 @@ class TeltonikaParser {
     let imeiLength = this._toInt(this._ack.ReadBytes(2));
     console.log(imeiLength)
     this.imei = this._ack.ReadBytes(imeiLength).toString();
-    console.log(imei)
+    console.log(this.imei)
     let codex_id = this._ack.ReadBytes(1);
     console.log(codex_id)
     let number_of_data = this._ack.ReadBytes(1);
