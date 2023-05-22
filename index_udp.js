@@ -21,7 +21,16 @@ class TeltonikaParser {
   }
 
   returnResponse() {
-    console.log(this._ack.ReadBytes(2))
+    let packet_length = this._ack.ReadBytes(2);
+    let packet_id = this._ack.ReadBytes(2);
+    let not_usable_byte = this._ack.ReadBytes(1);
+    let avl_packet_id = this._ack.ReadBytes(1);
+    let imeiLength = this._toInt(this._ack.ReadBytes(2));
+    this.imei = this._ack.ReadBytes(imeiLength).toString();
+    let codex_id = this._ack.ReadBytes(1);
+    let number_of_data = this._ack.ReadBytes(1);
+    let response = this._toInt('00 05') + this._toInt(packet_id) + this._toInt('01') + this._toInt(avl_packet_id) + this._toInt(number_of_data)
+    console.log(response)
   };
 
   checkIsImei() {
