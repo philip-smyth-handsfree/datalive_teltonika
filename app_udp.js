@@ -1,5 +1,5 @@
 var dgram = require('dgram');
-const Parser = require('./index.js');
+const Parser = require('./index_udp.js');
 
 const udpPort = 5000
 const server = dgram.createSocket('udp4');
@@ -20,7 +20,6 @@ server.on('message', async (msg, rinfo) => {
     let parser = new Parser(buffer);
     console.log(parser)
     console.log('####')
-    console.log(parser.parseHeader())
 
 
   } catch (error) {
