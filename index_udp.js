@@ -22,7 +22,7 @@ class TeltonikaParser {
 
   returnResponse() {
     let packet_length = this._ack.ReadBytes(2);
-    console.log(packet_length)
+    console.log('Packet Length', packet_length)
     let packet_id = this._ack.ReadBytes(2);
     console.log(packet_id)
     let not_usable_byte = this._ack.ReadBytes(1);
