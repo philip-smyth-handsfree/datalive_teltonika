@@ -7,9 +7,7 @@ const server = dgram.createSocket('udp4');
 function sendResponse(data, rinfo) {
   var message = data
   server.send(message, 0, message.length, rinfo.port, rinfo.address);
-  console.log(rinfo.port, rinfo.address)
-  console.log(typeof message)
-  console.log("Sent " + message);
+  console.log(rinfo.port, rinfo.address);
 }
 
 server.on('error', (err) => {

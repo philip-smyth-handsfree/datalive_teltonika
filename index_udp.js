@@ -11,12 +11,13 @@ class TeltonikaParser {
     this._reader = new binutils.BinaryReader(buffer);
     this._ack = new binutils.BinaryReader(buffer);
     this._avlObj = {};
+    console.log(this._ack)
     // this.checkIsImei();
     // if (!this.isImei) {
     this.parseHeader();
     this.decodeData();
     this.parseFooter();
-    this.returnResponse()
+    // this.returnResponse()
     // }
   }
 
