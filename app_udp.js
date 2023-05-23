@@ -25,6 +25,11 @@ server.on('message', async (msg, rinfo) => {
     let buffer = msg;
     let parser = new Parser(buffer);
     sendResponse(parser._resp, rinfo)
+    let avl = parser.getAvl();
+    console.log(avl)
+    console.log(avl.records.forEach(function(record){
+        console.log(record.ioElements)
+    }))
 
 
   } catch (error) {
