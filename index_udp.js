@@ -18,6 +18,7 @@ class TeltonikaParser {
     this.decodeData();
     this.parseFooter();
     this._resp = this.parseAck();
+    console.log(this._avlObj)
     // this.returnResponse()
     // }
   }
