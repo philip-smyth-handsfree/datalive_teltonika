@@ -11,7 +11,6 @@ class TeltonikaParser {
     this._reader = new binutils.BinaryReader(buffer);
     this._ack = new binutils.BinaryReader(buffer);
     this._avlObj = {};
-    console.log(this._ack)
     // this.checkIsImei();
     // if (!this.isImei) {
     this.parseHeader();
@@ -19,6 +18,12 @@ class TeltonikaParser {
     this.parseFooter();
     // this.returnResponse()
     // }
+  }
+
+  parseAck() {
+    console.log(this._ack);
+    this._ack.ReadBytes(1);
+    console.log(this._ack);
   }
 
   returnResponse() {
