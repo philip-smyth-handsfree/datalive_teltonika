@@ -15,10 +15,10 @@ class TeltonikaParser {
     this._codecId = 142
     // this.checkIsImei();
     // if (!this.isImei) {
+    this._resp = this.parseAck();
     this.parseHeader();
     this.decodeData();
-    this.parseFooter();
-    this._resp = this.parseAck();
+    this.parseFooter();   
     console.log(this._avlObj)
     // this.returnResponse()
     // }
@@ -62,7 +62,7 @@ class TeltonikaParser {
       number_of_data: this._toInt(this._reader.ReadBytes(1)),
     };
 
-    this._codecReader = this._reader;
+    this._codecReader = this._ack;
 
     switch (this._avlObj.codec_id) {
       case 7:
