@@ -30,7 +30,7 @@ class TeltonikaParser {
     let imei_temp = this._ack.ReadBytes(15);
     let codec_id = this._ack.ReadBytes(1);
     let number_of_data = this._ack.ReadBytes(1);
-    let response = Buffer.concat(['00', '05', packet_id, nub, avl_packet_id, number_of_data])
+    let response = Buffer.concat([Buffer.from('00', 'hex'), Buffer.from('05', 'hex'), packet_id, nub, avl_packet_id, number_of_data])
     console.log(response)
   }
 
