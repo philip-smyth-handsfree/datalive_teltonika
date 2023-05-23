@@ -12,6 +12,7 @@ class TeltonikaParser {
     this._ack = new binutils.BinaryReader(buffer);
     console.log(this._ack)
     this._avlObj = {};
+    this._codecId = 142
     // this.checkIsImei();
     // if (!this.isImei) {
     this.parseHeader();
@@ -57,10 +58,9 @@ class TeltonikaParser {
   parseHeader() {
     this._avlObj = {
       data_length: this._reader.ReadInt32(),
-      codec_id: this._toInt(this._reader.ReadBytes(1)),
+      codec_id: 142,
       number_of_data: this._toInt(this._reader.ReadBytes(1)),
     };
-    console.log('Codec', this._avlObj.codec_id)
 
     this._codecReader = this._reader;
 
