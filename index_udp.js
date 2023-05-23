@@ -16,7 +16,7 @@ class TeltonikaParser {
     this.parseHeader();
     this.decodeData();
     this.parseFooter();
-    this.parseAck();
+    this._resp = this.parseAck();
     // this.returnResponse()
     // }
   }
@@ -31,7 +31,7 @@ class TeltonikaParser {
     let codec_id = this._ack.ReadBytes(1);
     let number_of_data = this._ack.ReadBytes(1);
     let response = Buffer.concat([Buffer.from('00', 'hex'), Buffer.from('05', 'hex'), packet_id, nub, avl_packet_id, number_of_data])
-    console.log(response)
+    return(response)
   }
 
   returnResponse() {

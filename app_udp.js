@@ -24,7 +24,7 @@ server.on('message', async (msg, rinfo) => {
     // Length - Packet ID - Not usable Byte 0x01 - AVL Packet ID - Number of accepted Data
     let buffer = msg;
     let parser = new Parser(buffer);
-    sendResponse(parser.returnResponse(), rinfo)
+    sendResponse(parser._resp, rinfo)
 
 
   } catch (error) {
