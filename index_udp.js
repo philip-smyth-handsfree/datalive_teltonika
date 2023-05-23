@@ -60,6 +60,7 @@ class TeltonikaParser {
       codec_id: this._toInt(this._reader.ReadBytes(1)),
       number_of_data: this._toInt(this._reader.ReadBytes(1)),
     };
+    console.log('Codec', this._avlObj.codec_id)
 
     this._codecReader = this._reader;
 
