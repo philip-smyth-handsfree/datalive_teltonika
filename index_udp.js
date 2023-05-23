@@ -10,6 +10,7 @@ class TeltonikaParser {
   constructor(buffer) {
     this._reader = new binutils.BinaryReader(buffer);
     this._ack = new binutils.BinaryReader(buffer);
+    console.log(this._ack)
     this._avlObj = {};
     // this.checkIsImei();
     // if (!this.isImei) {
