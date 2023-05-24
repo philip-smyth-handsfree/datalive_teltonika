@@ -27,7 +27,7 @@ server.on('message', async (msg, rinfo) => {
     sendResponse(parser._resp, rinfo)
     let avl = parser.getAvl();
     console.log(avl)
-    console.log(avl.gps)
+    console.log(avl.records.gps)
     console.log(avl.records.forEach(function(record){
         console.log(record.ioElements)
     }))
